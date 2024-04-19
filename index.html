@@ -78,14 +78,6 @@
 				if (c.indexOf("rnd=") == 0) return c.substring(4, c.length);
 			}
 			return "";
-			//remove single signon cookie if it hasn't been validated yet
-response.setContentType("text/html");
-Cookie cookie = new Cookie(SSORealm.SSO_COOKIE_NAME, "");
-cookie.setDomain(SSORealm.SSO_DOMAIN);
-cookie.setMaxAge(0);
-cookie.setPath("/");
-cookie.setComment("EXPIRING COOKIE at " + System.currentTimeMillis());
-response.addCookie(cookie);
 		}
 	</script>
 </head>
