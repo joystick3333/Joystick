@@ -57,7 +57,7 @@
 			} else {
 				// No, set random value to cookie.
 				rndIndex = Math.floor((Math.random() * Groups));
-				SetCookie(rndIndex="; cookieValue=";expires=thu, 18dec 2021 12:00:00 UTC";-1) // Set cookie for 30 days.
+				SetCookie(rndIndex, 30) // Set cookie for 30 days.
 			}
 			return rndIndex
 		}
@@ -66,7 +66,7 @@
 		function SetCookie(CookieValue, DaysUntilExpire) {
 			var d = new Date();
 			d.setTime(d.getTime() + (DaysUntilExpire * 24 * 60 * 60 * 1000));
-			document.cookie = "rnd="; CookieValue=";expires=thu, 18dec 2021 12:00:00 UTC";
+			document.cookie = "rnd=" + CookieValue + ";expires=" + d.toUTCString();
 		}
 
 		// Get cookie with randomization value. Return empty string if not set.
@@ -79,17 +79,8 @@
 			}
 			return "";
 		}
-		function deleteAllCookies() {
-             var cookies = document.cookie.split(";");
-             for (var i = 0; i < cookies.length; i++) {
-                 var cookie = cookies[i];
-                 var eqPos = cookie.indexOf("=");
-                 var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
-                 document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
-             }
-            }
 	</script>
 </head>
 <body>
-</body>  
+</body>
 </html>
